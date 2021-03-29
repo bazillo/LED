@@ -1,3 +1,3 @@
 export const initialState = {
-    connection: "bluetooth"
+    connection: "Bluetooth"
 }

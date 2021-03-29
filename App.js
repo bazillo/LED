@@ -5,8 +5,8 @@ import {Home} from "./screens/Home";
 import {NavigationContainer} from "@react-navigation/native";
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import {Provider} from "react-redux";
-import {store} from "./store/store";
-import {ConnectionScreen} from "./screens/ConnectionScreen";
+import {store} from "./src/store/store";
+import {ConnectionScreen} from "./screens/Connection/ConnectionScreen";
 import {LedScreen} from "./screens/LedScreen";
 
 
