@@ -1,21 +1,22 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {View, Text, Button} from "react-native";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
-import {ConnectionSwitchCreator} from "../../src/store/actionCreator";
+import {ConnectionSwitchCreator, DevicesPushCreator, SendRequiredCreator} from "../../src/store/actionCreator"
+import {store} from "../../src/store/store";
 
 
 const mapStateToProps = (state) => {
     return {
-        connection: state.connection
+        connection: state.connection,
     }
 }
-const mapDispatchToProps = (dispatch) =>{
+const mapDispatchToProps = (dispatch) => {
     return {
-        changeConnection : bindActionCreators(ConnectionSwitchCreator,dispatch)
+        changeConnection: bindActionCreators(ConnectionSwitchCreator, dispatch),
+        send: bindActionCreators(SendRequiredCreator, dispatch)
     }
 }
-
 
 
 const Connection = (props) => {
@@ -24,18 +25,18 @@ const Connection = (props) => {
         justifyContent: "center",
         alignItems: "center"
     }}>
-        <Text>{props.connection}</Text>
+        <Text>You are using {props.connection}</Text>
         <Button
-            title= {"change"}
-            onPress={() => props.changeConnection((props.connection === "WIFI")?"Bluetooth":"WIFI")}
-            color = "#e78c38"
+            title={"Try connect"}
+            onPress={() => {
+                props.send(true)
+            }}
+            color="#e78c38"
         />
+
     </View>
 }
 
 
-
-
-
-export const ConnectionScreen = connect(mapStateToProps,mapDispatchToProps)(Connection)
+export const ConnectionScreen = connect(mapStateToProps, mapDispatchToProps)(Connection)
 

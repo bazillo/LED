@@ -15,27 +15,16 @@ const mapDispatchToProps = (dispatch) => {
 
 
 const LedD = (props) => {
-    if(props.mode ==="Bluetooth"){
-        return (
-            <View style={{
-                flex: 1,
-                justifyContent: "center",
-                alignItems: "center"
-            }}>
-                <Text>Bluetooth</Text>
-            </View>
-        )
-    }else{
-        return (
-            <View style={{
-                flex: 1,
-                justifyContent: "center",
-                alignItems: "center"
-            }}>
-                <Text>WIFI</Text>
-            </View>
-        )
-    }
+    return (
+        <View style={{
+            flex: 1,
+            justifyContent: "center",
+            alignItems: "center"
+        }}>
+
+        </View>
+    )
+
 }
 
 export const LedScreen = connect(mapStateToProps,)(LedD)
